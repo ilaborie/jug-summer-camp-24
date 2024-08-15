@@ -1,4 +1,5 @@
 import rustCounter from "../rust-wc/pkg/rust_wc";
+import dioxusCounter from "../dioxus-wc/pkg/dioxus_wc";
 
 import "./style.css";
 import counterCss from "./counter.css?raw";
@@ -78,3 +79,5 @@ rustCounter() //
   .then(() => play("rs-counter"));
 
 // 3 - Rust Dioxus web component
+dioxusCounter() //
+  .then(() => play("dx-counter"));
