@@ -74,7 +74,7 @@ const play = (selector: string) => {
     });
 };
 
-// play("js-counter");
+play("js-counter");
 
 // 2 - Pure Rust web component
 
