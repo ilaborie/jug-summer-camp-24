@@ -27,6 +27,11 @@ dir = "./dioxus-wc"
 sources = ['Cargo.toml', 'src/**/*.*', 'Dioxus.toml']
 outputs = ['pkg/**/*.*']
 
+# [tasks."dev:dx"]
+# description = 'Serve the dioxus-wc application'
+# run = "dx serve"
+# dir = "./dioxus-wc"
+
 [tasks."build:rs"]
 description = 'Build the rust-wc project for <rs-counter>'
 run = "wasm-pack build --release --no-pack --target web"
