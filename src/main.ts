@@ -1,4 +1,4 @@
-// import rustCounter, { CountRustElement } from "../rust-wc/pkg/rust_wc";
+import rustCounter from "../rust-wc/pkg/rust_wc";
 // import dioxusCounter from "../dioxus-wc/pkg/dioxus_wc";
 
 import "./style.css";
@@ -68,8 +68,8 @@ const play = (selector: string) => {
       // Listen to the count event
       el.addEventListener("count", (event) => {
         const { detail } = event as CustomEvent<CountEvent>;
-        el.nextSibling!.textContent = JSON.stringify(detail);
-        // el.nextSibling!.textContent = `${detail.count}`;
+        // el.nextSibling!.textContent = JSON.stringify(detail);
+        el.nextSibling!.textContent = `${detail.count}`;
       });
     });
 };
@@ -79,8 +79,8 @@ const play = (selector: string) => {
 // 2 - Pure Rust web component
 
 // const pg = document.querySelector(".playground");
-// rustCounter() //
-//   .then(() => play("rs-counter"));
+rustCounter() //
+  .then(() => play("rs-counter"));
 
 // 3 - Rust Dioxus web component
 
