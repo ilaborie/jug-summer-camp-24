@@ -2,39 +2,19 @@ use dioxus::prelude::*;
 use dioxus_web_component::{web_component, InjectedStyle};
 use wasm_bindgen::prelude::*;
 
-#[component]
-pub fn App() -> Element {
-    let mut current = use_signal(Option::<usize>::default);
-
-    let on_count = move |event: CountEvent| {
-        current.set(Some(event.count));
-    };
-
-    rsx! {
-        div { class: "container",
-            h1 { "🧬 Hello Dioxus" }
-
-            Counter {
-                name: "Plop",
-                on_count,
-            }
-
-            if let Some(count) = current() {
-                code { "{count}" }
-            }
-        }
-    }
-}
-
 #[derive(Debug, Clone, Copy)]
+#[wasm_bindgen]
 pub struct CountEvent {
     pub count: usize,
 }
 
-// const STYLE: InjectedStyle = InjectedStyle::css(include_str!("counter.css"));
+const STYLE: InjectedStyle = InjectedStyle::css(include_str!("counter.css"));
 
 /// Counter component
-#[component]
+#[web_component(
+    tag = "dx-counter",
+    style = STYLE,
+)]
 pub fn Counter(name: Option<String>, on_count: EventHandler<CountEvent>) -> Element {
     let mut count = use_signal(usize::default);
 
@@ -54,7 +34,7 @@ pub fn Counter(name: Option<String>, on_count: EventHandler<CountEvent>) -> Elem
     }
 }
 
-// #[wasm_bindgen(start)]
-// pub fn start() {
-//     register_counter();
-// }
+#[wasm_bindgen(start)]
+pub fn start() {
+    register_counter();
+}
