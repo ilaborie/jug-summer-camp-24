@@ -1,0 +1,18 @@
+{
+  "name": "jug-summer-camp-24",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "watch:rs": "cargo watch -c -s 'wasm-pack build --release --no-pack --target web' -C rust-wc/",
+    "watch:dx": "cargo watch -c -s 'wasm-pack build --release --no-pack --target web' -C dioxus-wc/",
+    "watch": "npm run watch:rs & npm run watch:dx",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0"
+  }
+}
