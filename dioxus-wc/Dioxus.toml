@@ -31,7 +31,10 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 
-style = ["/pico.css"]
+style = [
+  # "/pico.css"
+  "/main.css",
+]
 
 # Javascript code file
 script = []

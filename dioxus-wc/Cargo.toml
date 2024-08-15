@@ -16,7 +16,7 @@ dioxus = { version = "0.5.6", features = ["web"] }
 dioxus-web-component = "0.3.2"
 
 # Import/Export to WASM
-wasm-bindgen = "=0.2.92"
+wasm-bindgen = "0.2.93"
 
 # Tell `rustc` to optimize for small code size.
 [profile.release]

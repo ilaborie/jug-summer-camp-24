@@ -1,9 +1,11 @@
 :host {
-  outline: medium dotted red;
+  outline: medium dotted green;
   font-size: 1rem;
   --label-bg: purple;
   --label-fg: white;
+}
 
+.dioxus {
   display: flex;
   align-items: center;
   gap: 1rem;
