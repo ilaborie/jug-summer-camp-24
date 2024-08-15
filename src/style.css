@@ -1,0 +1,11 @@
+:root {
+  font-size: 24px;
+}
+
+js-counter {
+  --label-bg: navy;
+}
+
+footer {
+  background: #ea643b;
+}
