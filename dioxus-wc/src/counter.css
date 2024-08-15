@@ -1,0 +1,18 @@
+:host {
+  outline: medium dotted green;
+  font-size: 1rem;
+  --label-bg: purple;
+  --label-fg: white;
+}
+
+.dioxus {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  color: var(--label-fg);
+  background: var(--label-bg);
+  padding: 0.125rem 0.25rem;
+}
