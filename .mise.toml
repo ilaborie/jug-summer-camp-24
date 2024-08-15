@@ -1,0 +1,47 @@
+[env]
+RUST_LOG = "off"
+
+
+[tools]
+node = "lts"
+"cargo:cargo-binstall" = "latest"
+"cargo:wasm-pack" = "latest"
+"cargo:dioxus-cli" = "0.5"
+"cargo:cargo-watch" = "latest"
+
+[settings]
+experimental = true
+cargo_binstall = true
+
+
+# Tasks
+
+[tasks.clean]
+description = 'Clean dir'
+run = "rm -rf node_modules/ dist/ rust-wc/{target,pkg} dioxus-wc/{target,pkg, dist}"
+
+[tasks."build:dx"]
+description = 'Build the dioxus-wc project for <dx-counter>'
+run = "wasm-pack build --release --no-pack --target web"
+dir = "./dioxus-wc"
+sources = ['Cargo.toml', 'src/**/*.*', 'Dioxus.toml']
+outputs = ['pkg/**/*.*']
+
+[tasks."build:rs"]
+description = 'Build the rust-wc project for <rs-counter>'
+run = "wasm-pack build --release --no-pack --target web"
+dir = "./rust-wc"
+sources = ['Cargo.toml', 'src/**/*.*']
+outputs = ['pkg/**/*.*']
+
+[tasks.build]
+description = 'Build everything <js-counter>, <rs-counter>, and <dx-counter>'
+run = "npm run build"
+depends = ["build:*"]
+sources = ['tsconfig.json', 'public/**/*.*', 'src/**/*.*']
+outputs = ['dist/**/*.*']
+
+[tasks.dev]
+description = 'dev'
+run = "npm run watch & npm run dev"
+depends = ["build:*"]
