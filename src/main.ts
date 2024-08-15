@@ -1,4 +1,4 @@
-// import rustCounter, { CountRustElement } from "../rust-wc/pkg/rust_wc";
+import rustCounter from "../rust-wc/pkg/rust_wc";
 // import dioxusCounter from "../dioxus-wc/pkg/dioxus_wc";
 
 import "./style.css";
@@ -59,30 +59,26 @@ declare global {
 
 // Playing with the component
 const play = (selector: string) => {
-  document.querySelectorAll(selector) //
-    .forEach((el) => {
-      // Dynamic update the name attribute after 3s
-      setTimeout(() =>  //
-        el.setAttribute("name", "Plop & Plaf!"), 3000);
+  document.querySelectorAll(selector).forEach((el) => {
+    // Dynamic update the name attribute after 3s
+    setTimeout(() => el.setAttribute("name", "Plop & Plaf!"), 3000);
 
-      // Listen to the count event
-      el.addEventListener("count", (event) => {
-        const { detail } = event as CustomEvent<CountEvent>;
-        el.nextSibling!.textContent = JSON.stringify(detail);
-        // el.nextSibling!.textContent = `${detail.count}`;
-      });
+    // Listen to the count event
+    el.addEventListener("count", (event) => {
+      const { detail } = event as CustomEvent<CountEvent>;
+      // el.nextSibling!.textContent = JSON.stringify(detail);
+      el.nextSibling!.textContent = `${detail.count}`;
     });
+  });
 };
 
-// play("js-counter");
+play("js-counter");
 
 // 2 - Pure Rust web component
-
 // const pg = document.querySelector(".playground");
-// rustCounter() //
-//   .then(() => play("rs-counter"));
+rustCounter() //
+  .then(() => play("rs-counter"));
 
 // 3 - Rust Dioxus web component
-
 // dioxusCounter() //
 //   .then(() => play("dx-counter"));
