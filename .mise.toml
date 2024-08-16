@@ -37,7 +37,7 @@ outputs = ['pkg/**/*.*']
 [tasks.build]
 description = 'Build everything <js-counter>, <rs-counter>, and <dx-counter>'
 run = "npm run build"
-depends = ["init", "build:*"]
+depends = ["build:*"]
 sources = ['tsconfig.json', 'public/**/*.*', 'src/**/*.*']
 outputs = ['dist/**/*.*']
 
