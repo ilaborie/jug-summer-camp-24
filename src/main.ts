@@ -1,4 +1,4 @@
-// import rustCounter, { CountRustElement } from "../rust-wc/pkg/rust_wc";
+import rustCounter from "../rust-wc/pkg/rust_wc";
 // import dioxusCounter from "../dioxus-wc/pkg/dioxus_wc";
 
 import "./style.css";
@@ -72,11 +72,16 @@ const play = (selector: string) => {
   });
 };
 
-// play("js-counter");
+play("js-counter");
 
 // 2 - Pure Rust web component
-// rustCounter() //
-//   .then(() => play("rs-counter"));
+rustCounter() //
+  // .then(() => {
+  //   let elt = document.querySelector(".playground")!;
+  //   let wc = new CountRustElement(elt);
+  //   wc.connectedCallback();
+  // })
+  .then(() => play("rs-counter"));
 
 // 3 - Rust Dioxus web component
 // dioxusCounter() //

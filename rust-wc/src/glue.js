@@ -16,6 +16,7 @@ export function register(tag, attributes, builder) {
       constructor() {
         super();
         this.inner = builder.build(this);
+        // alert("toto");
       }
 
       connectedCallback() {
